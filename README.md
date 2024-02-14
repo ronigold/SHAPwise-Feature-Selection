@@ -68,7 +68,7 @@ This project was inspired by the work on SHapley Additive exPlanations (SHAP) an
 
 If you use SFS in your research, please cite our paper:
 
-\```
+```plaintext
 @article{yourname2024shapwise,
   title={SHAPwise Feature Selection (SFS): Enhancing Predictive Models through Correlation-Based Feature Analysis},
   author={Your Name and Collaborators},
@@ -78,6 +78,7 @@ If you use SFS in your research, please cite our paper:
   pages={xx-xx},
   year={2024}
 }
-\```
+```
 
 For further information and support, please open an issue in the GitHub repository.
+
