@@ -16,3 +16,29 @@ SHAPwise Feature Selection (SFS) is a Python library designed to enhance predict
 
 ```bash
 pip install sfs-shapwise-feature-selection
+```
+
+## Usage
+
+### Basic Example
+
+```python
+from sfs import SHAPwiseFeatureSelector
+from your_model import YourModel
+import pandas as pd
+
+# Load your dataset
+X, y = pd.read_csv("your_dataset.csv").drop("target", axis=1), pd.read_csv("your_dataset.csv")["target"]
+
+# Initialize your model
+model = YourModel()
+
+# Initialize SHAPwise Feature Selector
+sfs = SHAPwiseFeatureSelector(model, X, y)
+
+# Perform feature selection
+selected_features = sfs.select_features()
+
+# Train your model using selected features
+model.fit(X[selected_features], y)
+
