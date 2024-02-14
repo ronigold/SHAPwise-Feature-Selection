@@ -34,11 +34,50 @@ X, y = pd.read_csv("your_dataset.csv").drop("target", axis=1), pd.read_csv("your
 model = YourModel()
 
 # Initialize SHAPwise Feature Selector
-sfs = SHAPwiseFeatureSelector(model, X, y)
+sfs_model = SHAPwiseFeatureSelector(model)
 
 # Perform feature selection
-selected_features = sfs.select_features()
 
 # Train your model using selected features
-model.fit(X[selected_features], y)
+sfs_model.fit(X, y)
 
+model = sfs_model.base_estimator
+```
+
+### Advanced Configuration
+
+Refer to the documentation for advanced configuration options, including setting thresholds for SHAP value correlation and customizing the iterative selection process.
+
+## Documentation
+
+For detailed documentation, including API references and advanced usage examples, please visit [SFS Documentation](https://github.com/yourusername/sfs-shapwise-feature-selection/docs).
+
+## Contributing
+
+We welcome contributions to the SFS project! Please refer to our contribution guidelines for more information on how to report issues, submit pull requests, and more.
+
+## License
+
+SFS is released under the MIT License. See the LICENSE file for more details.
+
+## Acknowledgments
+
+This project was inspired by the work on SHapley Additive exPlanations (SHAP) and aims to bring the power of SHAP values to the realm of feature selection for machine learning models.
+
+## Citation
+
+If you use SFS in your research, please cite our paper:
+
+\```
+@article{yourname2024shapwise,
+  title={SHAPwise Feature Selection (SFS): Enhancing Predictive Models through Correlation-Based Feature Analysis},
+  author={Your Name and Collaborators},
+  journal={Journal of Machine Learning Research},
+  volume={xx},
+  number={xx},
+  pages={xx-xx},
+  year={2024}
+}
+\```
+
+For further information and support, please open an issue in the GitHub repository.
