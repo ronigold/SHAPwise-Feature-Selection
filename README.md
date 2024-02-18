@@ -38,9 +38,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Initialize SHAPwise Feature Selector
 sfs_model = SHAPwiseFeatureSelector(model, accuracy_score)
 
-# Perform feature selection
-
-# Train your model using selected features
+# Train your model using the SHAPwise Feature Selection method
 sfs_model.fit(X_train, y_train, X_test, y_test)
 
 drop_features = sfs_model.sfs_model
