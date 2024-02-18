@@ -24,6 +24,7 @@ pip install sfs-shapwise-feature-selection
 
 ```python
 from sfs import SHAPwiseFeatureSelector
+from sklearn.metrics import accuracy_score
 from your_model import YourModel
 import pandas as pd
 
@@ -32,15 +33,17 @@ X, y = pd.read_csv("your_dataset.csv").drop("target", axis=1), pd.read_csv("your
 
 # Initialize your model
 model = YourModel()
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Initialize SHAPwise Feature Selector
-sfs_model = SHAPwiseFeatureSelector(model)
+sfs_model = SHAPwiseFeatureSelector(model, accuracy_score)
 
 # Perform feature selection
 
 # Train your model using selected features
-sfs_model.fit(X, y)
+sfs_model.fit(X_train, y_train, X_test, y_test)
 
+drop_features = sfs_model.sfs_model
 model = sfs_model.base_estimator
 ```
 
